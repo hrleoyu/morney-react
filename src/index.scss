@@ -26,13 +26,23 @@ a {
   //下划线无
   color: inherit;
 }
+:focus{
+  outline: none;
+}
 body {
   font-family: $font-hei;
   font-size: 16px;
   line-height: 1.2;
+  background-color: #feffff;
+  max-width: 100vh;
+  color: #333;
 }
 
 .iconNav {
   width: 1em;
   height: 1em;
+}
+
+button {
+  font-family: inherit;
 }
