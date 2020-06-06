@@ -3,46 +3,23 @@ import React from "react";
 import styled from "styled-components";
 import Icon from "../components/icon";
 
+
 const TagsSection = styled.section`
   background: #feffff;
+  display: flex;flex-direction: column;flex-grow: 1;justify-content: flex-end;align-items: flex-start;
   > ol {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-        >li{
-            background: #fbf4b7;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: inline-block;
-            padding: 3px 18px;
-            font-size: 14px;
-            margin: 5px 5px;
-            border: 1px solid #4e4f45;
-            text-align: center;
-            justify-content: flex-start;
-              >.iconNav {
-                display: block;
-                width: 44px;
-                height: 44px; 
-                margin-top: 4px;
-              }
-            }
-            .none {
-            visibility:hidden;
-            }
+    display: flex;flex-wrap: wrap;flex-direction: row;justify-content: center;
+     >li{
+      background: #fbf4b7; width: 80px;height: 80px;border-radius: 50%;display: inline-block;
+      padding: 3px 18px;font-size: 14px;margin: 5px 5px;border: 1px solid #4e4f45;
+      text-align: center;
+       >.iconNav {display: block;width: 44px;height: 44px;margin-top: 4px;}
+         }
+          .none {visibility:hidden;}
             //不占位隐藏
         }
-        
-        >button {
-        background: none;
-        border: none;
-        border-bottom: 1px solid ;
-        color: #666;
-        padding: 0 4px;
-        margin: 5px 31px;
-        }
+          >button {background: none;border: none;border-bottom: 1px solid ;color: #666;padding: 0 4px;
+        margin: 5px 31px;}
 `;
 
 const NotesSection = styled.section`
@@ -91,16 +68,54 @@ const CategorySection = styled.section`
 `;
 
 const NumberSection = styled.section`
-
+  display: flex;
+  flex-direction: column;
+  >output {
+    background: white;
+    font-size: 36px;
+    line-height: 72px;
+    text-align: right;
+    padding: 0 16px;
+    box-shadow: inset 0 -5px 5px -5px rgba(0,0,0,0.25);}
+     >.pad { 
+       
+        background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+        //#fda085
+        > button{
+        
+        float: left;
+        width: 25%;
+        height: 64px;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: rgba(0,0,0,0.01);
+        opacity: 0.5;
+        &.ok {
+        height: 128px;
+        float: right;
+        }  
+        &.zero {
+        width: 50%;
+        }
+     }
+  }
 `;
 
 
 
 
+const MyLayout = styled(Layout)`
+  display: flex;
+  flex-direction: column;
+  
+  
+  
+  
+`
 
 function Money() {
     return(
-        <Layout>
+        <MyLayout className={'xxx'}>
             <TagsSection>
                 <ol>
                     <li>
@@ -145,10 +160,10 @@ function Money() {
                 </ul>
             </CategorySection>
             <NumberSection>
-                <div>
+                <output>
                     100
-                </div>
-                <div>
+                </output>
+                <div className={'pad clearfix' }>
                     <button>1</button>
                     <button>2</button>
                     <button>3</button>
@@ -160,13 +175,13 @@ function Money() {
                     <button>7</button>
                     <button>8</button>
                     <button>9</button>
-                    <button>OK</button>
-                    <button>0</button>
+                    <button className={'ok'}>OK</button>
+                    <button className={'zero'}>0</button>
                     <button>.</button>
 
                 </div>
             </NumberSection>
-        </Layout>
+        </MyLayout>
     ) ;
 }
 

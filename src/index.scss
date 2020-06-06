@@ -33,9 +33,11 @@ body {
   font-family: $font-hei;
   font-size: 16px;
   line-height: 1.2;
-  background-color: #feffff;
+  background: #feffff ;
+
   max-width: 100vh;
   color: #333;
+
 }
 
 .iconNav {
@@ -45,4 +47,10 @@ body {
 
 button {
   font-family: inherit;
+}
+
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
 }
