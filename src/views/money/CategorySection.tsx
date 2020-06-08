@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useState} from "react";
 
 const Wrapper = styled.section`
   >ul {
@@ -27,15 +27,23 @@ const Wrapper = styled.section`
 `;
 
 const CategorySection:React.FC = () => {
+    const [categoryList] = useState<('-'|'+')[]>(['-','+']);//缩小范围
+    const [category,setcategory] = useState('-');
+    const categoryMap = {'-':'支出','+':'收入'};//哈希
+
+
     return(
         <Wrapper>
             <ul>
-                <li className={'active'}>支出</li>
-                <li >收入</li>
+                {categoryList.map(c =>
+                    <li  key={c} className={category === c ? 'active' : ''}
+                        onClick={() => {setcategory(c)}}
+                    >{categoryMap[c]}</li>
+                )}
             </ul>
         </Wrapper>
     )
-}
+};
 
 
 
