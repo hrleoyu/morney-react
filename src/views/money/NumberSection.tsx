@@ -12,11 +12,9 @@ const Wrapper = styled.section`
     padding: 0 16px;
     box-shadow: inset 0 -5px 5px -5px rgba(0,0,0,0.25);}
      >.pad { 
-       
         background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
         //#fda085
         > button{
-        
         float: left;
         width: 25%;
         height: 64px;
@@ -61,7 +59,6 @@ const NumberSection:React.FC = () => {
             case '7':
             case '8':
             case '9':
-
                 if (output === '0'){
                     setOutput(text)
                 }else {
@@ -88,9 +85,6 @@ const NumberSection:React.FC = () => {
                 break;
         }
     };
-
-
-
     return(
         <Wrapper>
             <output>
@@ -115,7 +109,5 @@ const NumberSection:React.FC = () => {
         </Wrapper>
     )
 };
-
-
 
 export {NumberSection}

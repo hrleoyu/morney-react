@@ -4,7 +4,7 @@ import React, {FC, useState} from "react";
 
 import Icon from "../../components/icon";
 
-const _TagsSection = styled.section`
+const Wrapper = styled.section`
   background: #feffff;
   display: flex;flex-direction: column;flex-grow: 1;justify-content: flex-end;align-items: flex-start;
   > ol {
@@ -47,7 +47,7 @@ const TagsSection :React.FC = () => {
     };
 
     return (
-      <_TagsSection>
+      <Wrapper>
           <ol>
               {tags.map((tag,index) =>
                 <li key={index} onClick={()=>onToggleTag(tag)} className={selectedTags.indexOf(tag) >= 0 ? 'active' : ''}>
@@ -59,7 +59,7 @@ const TagsSection :React.FC = () => {
                   新增
               </li>
           </ol>
-      </_TagsSection>
+      </Wrapper>
     )
 };
 
