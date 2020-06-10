@@ -26,9 +26,14 @@ const Wrapper = styled.section`
   }
 `;
 
-const CategorySection:React.FC = () => {
+type Props = {
+    value:'-' | '+',
+    onChange:(value:'-'|'+')=>void
+}
+
+const CategorySection:React.FC<Props> = (props) => {
     const [categoryList] = useState<('-'|'+')[]>(['-','+']);//缩小范围
-    const [category,setcategory] = useState('-');
+    const category = props.value
     const categoryMap = {'-':'支出','+':'收入'};//哈希
 
 
@@ -37,7 +42,7 @@ const CategorySection:React.FC = () => {
             <ul>
                 {categoryList.map(c =>
                     <li  key={c} className={category === c ? 'active' : ''}
-                        onClick={() => {setcategory(c)}}
+                        onClick={() => {props.onChange(c)}}
                     >{categoryMap[c]}</li>
                 )}
             </ul>

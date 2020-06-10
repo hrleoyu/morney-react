@@ -33,15 +33,25 @@ const Wrapper = styled.section`
   }
 `;
 
-const NumberSection:React.FC = () => {
-    const [output,_setOutput] = useState('0');
+type Props = {
+    value:number,
+    onChange:(value:number)=>void,
+    onOk?:()=>void
+}
+
+const NumberSection:React.FC<Props> = (props) => {
+    const output = props.value.toString()
+
     const setOutput = (output:string) => {
+        let value
         if (output.length > 16){
-            output = output.slice(0,16)
+            value =parseFloat( output.slice(0,16))
         }else if (output.length === 0 ){
-            output = '0'
+            value = 0
+        }else {
+            value = parseFloat(output)
         }
-        _setOutput(output)
+        props.onChange(value)
     };
 
     const onNumber = (e:React.MouseEvent) => {
@@ -82,6 +92,9 @@ const NumberSection:React.FC = () => {
                 }
                 break;
             case 'ok':
+                if (text === 'ok'){
+                    if ( props.onOk ){ props.onOk()}
+                }
                 break;
         }
     };

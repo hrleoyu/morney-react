@@ -22,17 +22,22 @@ const Wrapper = styled.section`
   }
 `;
 
-const TagsSection :React.FC = () => {
+type Props = {
+    value:string[]
+    onChange:(obj:string[]) => void
+}
+
+const TagsSection :React.FC <Props> = (props) => {
     const [tags,setTags] = useState<string[]>(['服装','吃饭','住宿','交通','运动','购物',]);
     const [icons,setIcons] = useState<string[]>(['fz','sw','zs','jt','yd','gw']);
-    const [selectedTags,setSelectedTags] = useState<string[]> ([]);
+    const selectedTags = props.value
 
     const onToggleTag = (tag:string) => {
     const index=selectedTags.indexOf(tag);
         if (index >= 0 ) {
-            setSelectedTags(selectedTags.filter(t =>t !==tag ));
+            props.onChange(selectedTags.filter(t =>t !==tag ));
         }else {
-            setSelectedTags([...selectedTags,tag])
+            props.onChange([...selectedTags,tag])
         }
     };
 

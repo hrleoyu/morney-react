@@ -21,8 +21,12 @@ const Wrapper = styled.section`
     }
 `;
 
+type Props = {
+    value:string,
+    onChange:(value:string)=>void
+}
 
-const NoteSection :React.FC = () => {
+const NoteSection :React.FC <Props> = (props) => {
     const [note,setNote] = useState('');
     console.log(note)
     const refInput = useRef<HTMLInputElement>(null);
