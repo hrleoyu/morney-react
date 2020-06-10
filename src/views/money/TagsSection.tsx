@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import React, {FC, useState} from "react";
-
-
 import Icon from "../../components/icon";
+import {useTags} from "../../useTags";
 
 const Wrapper = styled.section`
   background: #feffff;
@@ -28,7 +27,7 @@ type Props = {
 }
 
 const TagsSection :React.FC <Props> = (props) => {
-    const [tags,setTags] = useState<string[]>(['服装','吃饭','住宿','交通','运动','购物',]);
+    const {tags, setTags} = useTags();
     const [icons,setIcons] = useState<string[]>(['fz','sw','zs','jt','yd','gw']);
     const selectedTags = props.value
 
