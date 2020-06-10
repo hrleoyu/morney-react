@@ -15,51 +15,27 @@ const MyLayout = styled(Layout)`
 type Category = '-' | '+'
 
 function Money() {
-    const [obj,setObj] = useState({
+    const [value,setValue] = useState({
        tags:[] as string[],
        note : '',
        category : '-' as Category,
        number : 0
     });
+
+   //Partial<?> 括号中类型的部分
+    const onChange = (obj:Partial<typeof value>) => {
+        setValue({
+            ...value,
+            ...obj
+        })
+    };
+
     return(
         <MyLayout className={'xxx'}>
-            <TagsSection value={obj.tags} onChange={(tags) =>
-                setObj({
-                    ...obj,
-                    tags:tags
-                })
-            } />
-            <NoteSection
-                value={obj.note}
-                onChange ={(note) => {
-                    setObj({
-                        ...obj,
-                        note:note
-                    })
-                }}
-            />
-
-            <CategorySection
-                value={obj.category}
-                onChange={(category) => {
-                    setObj({
-                        ...obj,
-                        category: category
-                    })
-                }}
-            />
-
-            <NumberSection
-                value={obj.number}
-                onChange={(number)=>{
-                   setObj({
-                       ...obj,
-                       number: number
-                   })
-                }}
-                onOk={()=>{}}
-            />
-
+            <TagsSection value={value.tags} onChange={tags => onChange({tags})} />
+            <NoteSection value={value.note} onChange ={note=> onChange({note})}/>
+            <CategorySection value={value.category} onChange={category =>onChange({category}) }/>
+            <NumberSection value={value.number} onChange={number=>onChange({number})} onOk={()=>{}}/>
         </MyLayout>
     ) ;
 }
