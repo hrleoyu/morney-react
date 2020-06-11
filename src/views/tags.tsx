@@ -38,9 +38,9 @@ function Tags() {
         <Layout>
             <TagList>
             {tags.map(tag =>
-                <li key={tag}>
+                <li key={tag.id}>
                     <Link to={'/tags/' + tag}>
-                    {tag}
+                    {tag.name}
                     <Icon name={'right'}/>
                     </Link>
                 </li>

@@ -2,7 +2,14 @@ import {useState} from "react";
 
 
 const useTags = () => {//封装一个自定义hook
-    const [tags,setTags] = useState<string[]>(['服装','吃饭','住宿','交通','运动','购物',]);
+    const [tags,setTags] = useState<{id:number,name:string}[]>([
+        {id:1,name:'服装'},
+        {id:2,name:'吃饭'},
+        {id:3,name:'住宿'},
+        {id:4,name:'交通'},
+        {id:5,name:'运动'},
+        {id:5,name:'购物'},
+    ]);
     return{
         tags ,
         setTags

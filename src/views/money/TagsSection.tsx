@@ -22,30 +22,29 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-    value:string[]
-    onChange:(obj:string[]) => void
+    value:number[]
+    onChange:(obj:number[]) => void
 }
 
 const TagsSection :React.FC <Props> = (props) => {
     const {tags, setTags} = useTags();
     const [icons,setIcons] = useState<string[]>(['fz','sw','zs','jt','yd','gw']);
-    const selectedTags = props.value
+    const selectedTagIds = props.value
 
-    const onToggleTag = (tag:string) => {
-    const index=selectedTags.indexOf(tag);
+    const onToggleTag = (tagId:number) => {
+    const index=selectedTagIds.indexOf(tagId);
         if (index >= 0 ) {
-            props.onChange(selectedTags.filter(t =>t !==tag ));
+            props.onChange(selectedTagIds.filter(t =>t !==tagId ));
         }else {
-            props.onChange([...selectedTags,tag])
+            props.onChange([...selectedTagIds,tagId])
         }
     };
-
 
     const onAdd = () => {
         const tagName = window.prompt('新标签名为：')
         console.log(tagName)
         if (tagName !== null){
-            setTags([...tags,tagName])
+            setTags([...tags,{id:Math.random(),name:tagName}])
             setIcons([...icons,'ty'])
         }
     };
@@ -54,9 +53,9 @@ const TagsSection :React.FC <Props> = (props) => {
       <Wrapper>
           <ol>
               {tags.map((tag,index) =>
-                <li key={index} onClick={()=>onToggleTag(tag)} className={selectedTags.indexOf(tag) >= 0 ? 'active' : ''}>
+                <li key={index} onClick={()=>onToggleTag(tag.id)} className={selectedTagIds.indexOf(tag.id) >= 0 ? 'active' : ''}>
                     {<Icon name={icons[index]}/>}
-                    {tag}
+                    {tag.name}
                 </li>)}
               <li onClick={onAdd}>
                   <Icon name={'ty'} />
