@@ -26,10 +26,6 @@ const NavWrapper = styled.nav`
       }
       &.selected {
         text-shadow: 0 0 3px rgba(0,0,0,0.25);
-          >.iconNav {
-          width: 34px;
-          height: 34px;
-         }
         }
       }
     }
@@ -41,7 +37,7 @@ const Nav  = () => {
         <NavWrapper>
             <ul>
                 <li>
-                    <NavLink to="/tags" activeClassName={'selected'}>
+                    <NavLink to="/tags" exact activeClassName={'selected'}>
                         <Icon name={'tags'}/>
                         标签
                     </NavLink>

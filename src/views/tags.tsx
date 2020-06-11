@@ -4,29 +4,24 @@ import {useTags} from "../useTags";
 import styled from "styled-components";
 import Icon from "../components/icon";
 import {Link} from "react-router-dom";
+import ButtonList from "../components/Button";
 
 function Tags() {
     const TagList = styled.ol`
     font-size: 16px;
       >li{
-      border-bottom: 1px solid #faf3be; 
+      border-bottom: 1px solid #efb681; 
       line-height: 20px;         
-      margin-left: 16px;
+      margin:0 16px;
         >a{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px 16px  ; 
+        padding: 12px 8px; 
         }
       }
 `;
-    const ButtonList = styled.button`
-    font-size: 18px;
-    padding: 4px 4px;
-    background:#faf3be;
-    border-radius: 4px;
-    margin-top: 20px;
-`;
+
     const Center = styled.div`
   display: flex;
   align-items: center;
