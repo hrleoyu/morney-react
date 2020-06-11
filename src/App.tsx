@@ -9,6 +9,7 @@ import Money from "./views/money";
 import Statistics from "./views/statistics";
 import Tags from "./views/tags";
 import NoMatch from "./views/nomatch";
+import Tag from "./views/Tag";
 
 
 
@@ -18,13 +19,16 @@ function App() {
       <Router>
           <Switch>
             //switch 标签内为渲染区域
-            <Route path="/tags">
+            <Route path="/tags" exact>
               <Tags />
             </Route>
-            <Route path="/money">
+            <Route path="/tags/:tag" exact>
+              <Tag />
+            </Route>
+            <Route path="/money" exact>
               <Money />
             </Route>
-            <Route path="/statistics">
+            <Route path="/statistics" exact>
               <Statistics />
             </Route>
             <Redirect exact from={'/'} to={'/money'}/>
