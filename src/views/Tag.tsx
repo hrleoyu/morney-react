@@ -1,10 +1,20 @@
 import React from "react";
 import Layout from "../components/Layout";
+import {useTags} from "../useTags";
+import {useParams} from 'react-router-dom'
 
-const Tag:React.FC = () => {
+type Params = {
+    id:string
+}
+
+const Tag:React.FC = (props) => {
+    const {findTags} = useTags();
+    let {id} = useParams<Params>();
+    const tag = findTags(parseInt(id));
+    console.log(tag)
     return(
         <Layout>
-            <div>hi</div>
+            <div>{tag.name}</div>
         </Layout>
     )
 };
