@@ -6,6 +6,8 @@ const ButtonList = styled.button`
     background:#faf3be;
     border-radius: 4px;
     margin-top: 20px;
+   
+    
 `;
 
 export default ButtonList;

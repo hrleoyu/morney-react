@@ -32,16 +32,33 @@ const ToBar = styled.header`
     transform: translate(-50%);
     }
 `;
-
+const Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 
 type Params = {
     id:string
 }
 const Tag:React.FC = (props) => {
-    const {findTags} = useTags();
+    const {findTags,deleteTag} = useTags();
     let {id} = useParams<Params>();
     const tag = findTags(parseInt(id));
+    const tagContent = (tag:{id:number;name:string}) => (
+        <div>
+            <Label>
+                <span>标签名</span>
+                <input type={'text'} placeholder={tag.name}
+                       onChange={(e) => {tag.name= e.target.value}}
+                />
+            </Label>
+            <Center>
+                <ButtonList onClick={() => deleteTag(tag.id)}>删除标签</ButtonList>
+            </Center>
+        </div>
+    );
     return(
         <Layout>
             <ToBar>
@@ -50,16 +67,9 @@ const Tag:React.FC = (props) => {
                 </Link>
                 <h3>编辑标签</h3>
             </ToBar>
-            <div>
-                <Label>
-                    <span>标签名</span>
-                    <input type={'text'} placeholder={tag.name}
-                           onChange={(e) => {tag.name= e.target.value}}
-                    />
-                </Label>
-            </div>
-            <ButtonList>删除标签</ButtonList>
-        </Layout>
+            {tag ? tagContent(tag) : <Center>标签已删除</Center>}
+
+            </Layout>
     )
 };
 
