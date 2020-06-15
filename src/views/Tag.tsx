@@ -54,6 +54,7 @@ const Tag:React.FC = (props) => {
                 <Label>
                     <span>标签名</span>
                     <input type={'text'} placeholder={tag.name}
+                           onChange={(e) => {tag.name= e.target.value}}
                     />
                 </Label>
             </div>
