@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 const defaultTags =
@@ -12,10 +12,23 @@ const defaultTags =
 ];
 
 const useTags = () => {//封装一个自定义hook
-    const [tags,setTags] = useState<{id:number,name:string}[]>(defaultTags);
+    const [tags,setTags] = useState<{id:number,name:string}[]>([]);
+    useEffect(() =>{
+        setTags(JSON.parse(window.localStorage.getItem('tags' )||'[]'))
+    },[]);
+    useEffect(() => {
+        window.localStorage.setItem('tags',JSON.stringify(tags))
+    })
     const findTags = (id:number ) => tags.filter(tag => tag.id === id)[0];
     const deleteTag = (id:number) =>{setTags(tags.filter(tag => tag.id !== id))};
-    return{tags , setTags,findTags,deleteTag}
+    const addTag = () => {
+        const tagName = window.prompt('新标签名为：')
+        console.log(tagName)
+        if (tagName !== null){
+            setTags([...tags,{id:Math.random(),name:tagName}])
+        }
+    };
+    return{tags , addTag,setTags,findTags,deleteTag}
 };
 
 export {useTags};

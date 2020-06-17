@@ -28,7 +28,7 @@ function Tags() {
   justify-content: center;
 `;
 
-    const {tags,setTags} = useTags();
+    const {tags,setTags,addTag} = useTags();
     return (
         <Layout>
             <TagList>
@@ -42,7 +42,7 @@ function Tags() {
             )}
             </TagList>
             <Center>
-            <ButtonList>新增标签</ButtonList>
+            <ButtonList onClick={addTag}>新增标签</ButtonList>
             </Center>
             </Layout>
     );
