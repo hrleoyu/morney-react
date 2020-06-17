@@ -4,6 +4,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './index.scss'
 
+console.log('页面刷新')
+
 ReactDOM.render(<App/>,
   document.getElementById('root')
 );

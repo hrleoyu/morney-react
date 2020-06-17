@@ -11,6 +11,7 @@ try {importAll(require.context('../icons/', true, /\.svg$/));} catch (error) {co
 
 type Props = {
     name : string
+    onClick?:any
 }
 
 
