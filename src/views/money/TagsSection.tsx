@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import Icon from "../../components/icon";
 import {useTags} from "../../useTags";
 
@@ -42,12 +42,16 @@ const TagsSection :React.FC <Props> = (props) => {
 
     const onAdd = () => {
         const tagName = window.prompt('新标签名为：')
-        console.log(tagName)
         if (tagName !== null){
             setTags([...tags,{id:Math.random(),name:tagName}])
             setIcons([...icons,'ty'])
         }
+
     };
+    useEffect(() => {
+        window.localStorage.getItem('newicon',JSON.stringify(icons))
+    },[setIcons])
+
 
     return (
       <Wrapper>
