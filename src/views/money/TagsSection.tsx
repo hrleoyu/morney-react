@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {FC, useEffect, useState} from "react";
+import React, {FC, useEffect, useRef, useState} from "react";
 import Icon from "../../components/icon";
 import {useTags} from "../../useTags";
 
@@ -48,9 +48,25 @@ const TagsSection :React.FC <Props> = (props) => {
         }
 
     };
+    let iconsNew = icons
+    let iconsNewStr = JSON.stringify(iconsNew)
+    console.log('icons')
+    console.log(iconsNew)
+    console.log(iconsNewStr)
     useEffect(() => {
-        window.localStorage.getItem('newicon',JSON.stringify(icons))
-    },[setIcons])
+        let iconsNewLocal = JSON.stringify(window.localStorage.getItem('icon')||'[]');
+        if (iconsNewLocal.length > 6) {
+            iconsNewLocal = iconsNewStr
+        }
+        },[]);
+
+
+
+    useEffect(() => {
+        window.localStorage.setItem('icons',JSON.stringify(icons))
+
+    });
+
 
 
     return (

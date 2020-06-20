@@ -41,9 +41,9 @@ function Tags() {
                 </li>
             )}
             </TagList>
-            <Center>
-            <ButtonList onClick={addTag}>新增标签</ButtonList>
-            </Center>
+            {/*<Center>*/}
+            {/*<ButtonList onClick={addTag}>新增标签</ButtonList>*/}
+            {/*</Center>*/}
             </Layout>
     );
 }
