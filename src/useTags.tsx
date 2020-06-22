@@ -27,7 +27,7 @@ const useTags = () => {//封装一个自定义hook
             ];
         }
         setTags(localTags)
-        console.log(localTags)
+
     },[]);
     useEffect(() => {
         window.localStorage.setItem('tags',JSON.stringify(tags))

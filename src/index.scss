@@ -47,10 +47,12 @@ body {
 
 button input{
   font: inherit;
+  
 }
 
 .clearfix::after{
   content: '';
   display: block;
   clear: both;
+
 }

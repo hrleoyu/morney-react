@@ -50,22 +50,15 @@ const TagsSection :React.FC <Props> = (props) => {
     };
     let iconsNew = icons
     let iconsNewStr = JSON.stringify(iconsNew)
-    console.log('icons')
-    console.log(iconsNew)
-    console.log(iconsNewStr)
-    useEffect(() => {
-        let iconsNewLocal = JSON.stringify(window.localStorage.getItem('icon')||'[]');
-        if (iconsNewLocal.length > 6) {
-            iconsNewLocal = iconsNewStr
-        }
-        },[]);
+
 
 
 
     useEffect(() => {
         window.localStorage.setItem('icons',JSON.stringify(icons))
+        console.log(icons)
 
-    });
+    },[icons]);
 
 
 
