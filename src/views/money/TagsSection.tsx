@@ -48,8 +48,7 @@ const TagsSection :React.FC <Props> = (props) => {
         }
 
     };
-    let iconsNew = icons
-    let iconsNewStr = JSON.stringify(iconsNew)
+
 
 
 
