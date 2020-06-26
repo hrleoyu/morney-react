@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from "react";
+import {useUpdate} from "./components/useUpdate";
 
 
 const defaultTags =
@@ -15,7 +16,8 @@ const useTags = () => {//封装一个自定义hook
     const [tags,setTags] = useState<{id:number,name:string}[]>([]);
 
     useEffect(() =>{
-       let localTags =  JSON.parse(window.localStorage.getItem('tags' )||'[]');
+        console.log('localtags');
+        let localTags =  JSON.parse(window.localStorage.getItem('tags' )||'[]');
         if (localTags.length === 0) {
             localTags = [
                 {id:1,name:'服装'},
@@ -27,11 +29,14 @@ const useTags = () => {//封装一个自定义hook
             ];
         }
         setTags(localTags)
-
     },[]);
-    useEffect(() => {
+
+    // useEffect(() => {
+    //     window.localStorage.setItem('tags',JSON.stringify(tags))
+    // });
+    useUpdate(() =>{
         window.localStorage.setItem('tags',JSON.stringify(tags))
-    });
+    },[tags])
     const findTags = (id:number ) => tags.filter(tag => tag.id === id)[0];
     const deleteTag = (id:number) =>{setTags(tags.filter(tag => tag.id !== id))};
     const addTag = () => {

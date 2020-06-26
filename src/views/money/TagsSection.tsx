@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, {FC, useEffect, useRef, useState} from "react";
 import Icon from "../../components/icon";
 import {useTags} from "../../useTags";
+import {useUpdate} from "../../components/useUpdate";
 
 const Wrapper = styled.section`
   background: #feffff;
@@ -49,15 +50,23 @@ const TagsSection :React.FC <Props> = (props) => {
 
     };
 
+    useEffect(()=>{
+        console.log('geticons');
+        let loaclicons = JSON.parse(window.localStorage.getItem('icons')||'[]')
+        if(loaclicons.length === 0 ){
+            loaclicons = [
+                'fz','sw','zs','jt','yd','gw'
+            ]
+        }
+        setIcons(loaclicons)
+    },[])
 
-
-
-
-    useEffect(() => {
+    useUpdate(() => {
+        console.log('useUpicon');
+        console.log(JSON.stringify(icons));
         window.localStorage.setItem('icons',JSON.stringify(icons))
-        console.log(icons)
+    },[icons])
 
-    },[icons]);
 
 
 

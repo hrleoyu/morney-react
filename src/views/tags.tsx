@@ -4,7 +4,7 @@ import {useTags} from "../useTags";
 import styled from "styled-components";
 import Icon from "../components/icon";
 import {Link} from "react-router-dom";
-import ButtonList from "../components/Button";
+
 
 function Tags() {
     const TagList = styled.ol`
@@ -22,13 +22,8 @@ function Tags() {
       }
 `;
 
-    const Center = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
-    const {tags,setTags,addTag} = useTags();
+    const {tags} = useTags();
     return (
         <Layout>
             <TagList>
@@ -41,9 +36,6 @@ function Tags() {
                 </li>
             )}
             </TagList>
-            {/*<Center>*/}
-            {/*<ButtonList onClick={addTag}>新增标签</ButtonList>*/}
-            {/*</Center>*/}
             </Layout>
     );
 }
