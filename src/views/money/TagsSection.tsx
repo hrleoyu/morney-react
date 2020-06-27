@@ -51,7 +51,6 @@ const TagsSection :React.FC <Props> = (props) => {
     };
 
     useEffect(()=>{
-        console.log('geticons');
         let loaclicons = JSON.parse(window.localStorage.getItem('icons')||'[]')
         if(loaclicons.length === 0 ){
             loaclicons = [
@@ -62,8 +61,6 @@ const TagsSection :React.FC <Props> = (props) => {
     },[])
 
     useUpdate(() => {
-        console.log('useUpicon');
-        console.log(JSON.stringify(icons));
         window.localStorage.setItem('icons',JSON.stringify(icons))
     },[icons])
 

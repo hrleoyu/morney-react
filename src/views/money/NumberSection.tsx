@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 
+
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -36,7 +37,7 @@ const Wrapper = styled.section`
 type Props = {
     value:number,
     onChange:(value:number)=>void,
-    onOk?:()=>void
+    onOk:()=>void
 }
 
 const NumberSection:React.FC<Props> = (props) => {
@@ -53,6 +54,9 @@ const NumberSection:React.FC<Props> = (props) => {
         }
         props.onChange(value)
     };
+
+
+
 
     const onNumber = (e:React.MouseEvent) => {
         const text = (e.target as HTMLButtonElement).textContent
@@ -76,7 +80,7 @@ const NumberSection:React.FC<Props> = (props) => {
                 }
                 break;
             case '.':
-                if (output.indexOf('.')>=0){return;}
+                if (output.indexOf('.')>=1){return;}
                 setOutput(output+'.')
                 break;
             case '删除':
@@ -93,7 +97,7 @@ const NumberSection:React.FC<Props> = (props) => {
                 break;
             case 'ok':
                 if (text === 'ok'){
-                    if ( props.onOk ){ props.onOk()}
+                        props.onOk()
                 }
                 break;
         }
@@ -115,7 +119,7 @@ const NumberSection:React.FC<Props> = (props) => {
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
-                <button className={'ok'}>OK</button>
+                <button className={'ok'}>ok</button>
                 <button className={'zero'}>0</button>
                 <button>.</button>
             </div>

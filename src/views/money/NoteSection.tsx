@@ -16,7 +16,6 @@ type Props = {
 
 const NoteSection :React.FC <Props> = (props) => {
     const [note,setNote] = useState('');
-    console.log(note)
     const refInput = useRef<HTMLInputElement>(null);
     const onBlur = () => {
         if (refInput.current !== null){
