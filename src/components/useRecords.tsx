@@ -16,7 +16,15 @@ export const useRecords = () => {
     },[])
 
     const addRecords = (record:RecordsItem) => {
+        if (record.amount <=0){
+            alert('请输入金额')
+            return false}
+        if (record.tagIds.length===0){
+             alert('请选择标签')
+            return false
+        }
         setRecords([...records,record])
+        return true
     };
 
     useUpdate(()=>{

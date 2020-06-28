@@ -34,10 +34,10 @@ function Money() {
         })
     };
     const submit = () => {
-        addRecords(value)
+        if (addRecords(value)){
         alert('保存成功')
         setValue(defaultValue)
-    }
+    }}
 
     return(
         <MyLayout className={'xxx'}>
