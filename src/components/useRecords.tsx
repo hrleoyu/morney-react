@@ -31,6 +31,8 @@ export const useRecords = () => {
         window.localStorage.setItem('records',JSON.stringify(records))
     },[records])
 
+
+
     return{records,addRecords}
 };
 

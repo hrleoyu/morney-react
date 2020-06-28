@@ -32,7 +32,11 @@ const useTags = () => {//封装一个自定义hook
             setTags([...tags,{id:Math.random(),name:tagName}])
         }
     };
-    return{tags , addTag,setTags,findTags,deleteTag}
+    const getName = (id:number) => {
+        const tag = tags.filter(t => t.id === id)[0];
+        return tag ? tag.name : ''
+    };
+    return{tags , addTag,setTags,findTags,deleteTag,getName}
 };
 
 export {useTags};
