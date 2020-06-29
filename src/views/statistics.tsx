@@ -24,7 +24,9 @@ function Statistics() {
     const [category,setCategory] = useState<'-'|'+'>('-');
     const {getName} = useTags();
     const {records} = useRecords();
-    console.log(records);
+    const selectCate = records.filter(r => r.category === category)
+
+
     return(
         <Layout>
             <CategorySection value={category} onChange={value => {
@@ -32,7 +34,7 @@ function Statistics() {
             }}/>
 
             <div>
-                {records.map(r => {
+                {selectCate.map(r => {
                     return <Item>
                         <div className="tags">
                             {r.tagIds.map(tagId => <span>{getName(tagId)}</span>)}
@@ -47,7 +49,7 @@ function Statistics() {
                         </div>
 
 
-                        {/*{day(r.createdAt).format('YYYY年MM月DD日')}*/}
+                        {day(r.createdAt).format('YYYY年MM月DD日')}
                     </Item>
                 })}
             </div>
