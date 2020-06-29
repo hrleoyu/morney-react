@@ -8,6 +8,7 @@ import {TagsSection} from "./money/TagsSection";
 import {NumberSection} from "./money/NumberSection";
 import {useRecords} from "../components/useRecords";
 
+
 const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
@@ -35,9 +36,10 @@ function Money() {
     };
     const submit = () => {
         if (addRecords(value)){
-        alert('保存成功')
-        setValue(defaultValue)
-    }}
+        alert('保存成功');
+        setValue(defaultValue);
+        }
+    };
 
     return(
         <MyLayout className={'xxx'}>
