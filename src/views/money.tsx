@@ -24,29 +24,29 @@ const defaultValue = {
 }
 
 function Money() {
-    const [value,setValue] = useState(defaultValue);
+    const [selected,setSelected] = useState(defaultValue);
     const {addRecords,} = useRecords()
 
    //Partial<?> 括号中类型的部分
-    const onChange = (obj:Partial<typeof value>) => {
-        setValue({
-            ...value,
+    const onChange = (obj:Partial<typeof selected>) => {
+        setSelected({
+            ...selected,
             ...obj
         })
     };
     const submit = () => {
-        if (addRecords(value)){
+        if (addRecords(selected)){
         alert('保存成功');
-        setValue(defaultValue);
+        setSelected(defaultValue);
         }
     };
 
     return(
         <MyLayout className={'xxx'}>
-            <TagsSection value={value.tagIds} onChange={tagIds => onChange({tagIds })} />
-            <NoteSection value={value.note} onChange ={note=> onChange({note})}/>
-            <CategorySection value={value.category} onChange={category =>onChange({category}) }/>
-            <NumberSection value={value.amount} onChange={amount=>onChange({amount})} onOk={submit}/>
+            <TagsSection value={selected.tagIds} onChange={tagIds => onChange({tagIds })} />
+            <NoteSection value={selected.note} onChange ={note=> onChange({note})}/>
+            <CategorySection value={selected.category} onChange={category =>onChange({category}) }/>
+            <NumberSection value={selected.amount} onChange={amount=>onChange({amount})} onOk={submit}/>
         </MyLayout>
     ) ;
 }
