@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import React, {useState} from "react";
 import styled from "styled-components";
 
+
 import {CategorySection} from "./money/CategorySection";
 import {NoteSection} from "./money/NoteSection";
 import {TagsSection} from "./money/TagsSection";
@@ -13,6 +14,7 @@ const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `;
+
 
 type Category = '-' | '+'
 
@@ -43,10 +45,12 @@ function Money() {
 
     return(
         <MyLayout className={'xxx'}>
+
             <TagsSection value={selected.tagIds} onChange={tagIds => onChange({tagIds })} />
             <NoteSection value={selected.note} onChange ={note=> onChange({note})}/>
             <CategorySection value={selected.category} onChange={category =>onChange({category}) }/>
             <NumberSection value={selected.amount} onChange={amount=>onChange({amount})} onOk={submit}/>
+
         </MyLayout>
     ) ;
 }

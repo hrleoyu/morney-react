@@ -7,9 +7,11 @@ import {useUpdate} from "../../components/useUpdate";
 const Wrapper = styled.section`
   background: #feffff;
   display: flex;flex-direction: column;flex-grow: 1;justify-content: flex-end;align-items: flex-start;
+  background-image: url("https://i.loli.net/2020/07/02/zp5cCtW3f2wykIb.jpg");
+  background-size: cover;
   > ol {
     display: flex;flex-wrap: wrap;flex-direction: row;justify-content: flex-start;
-       width:100%;height:180px;overflow: auto;box-shadow: 0 0 3px rgba(0,0,0,0.25);border-radius: 4px;
+       width:100%;height:180px;overflow: auto;border-radius: 4px;
      >li{
       background: #fbf4b7; width: 80px;height: 80px;border-radius: 50%;display: inline-block;
       padding: 5px 18px;font-size: 14px;margin: 5px 6.5px;border: 1px solid #4e4f45;
