@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import Label from "../../components/Input";
 
 const Wrapper = styled.section`

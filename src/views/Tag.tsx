@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import {useTags} from "../useTags";
-import {Link, useParams,useHistory} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Icon from "../components/icon";
 import ButtonList from "../components/Button";
 import styled from "styled-components";

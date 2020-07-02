@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {FC, useEffect, useRef, useState} from "react";
+import React, { useEffect,  useState} from "react";
 import Icon from "../../components/icon";
 import {useTags} from "../../useTags";
 import {useUpdate} from "../../components/useUpdate";
