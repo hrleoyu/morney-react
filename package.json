@@ -1,7 +1,7 @@
 {
   "name": "morney-react",
   "version": "0.1.0",
-  "homepage": "https://gitee.com/morney-website/",
+  "homepage": "https://gitee.com/easy-accounting-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
